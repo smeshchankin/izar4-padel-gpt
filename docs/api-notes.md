@@ -144,3 +144,16 @@ Example response:
   "dstActive": true
 }
 ```
+## Required Call Order
+
+For every user request, the GPT should call APIs in this order:
+
+```text
+1. getCurrentMadridTime
+2. getReservations
+3. answer the user or perform the requested action
+```
+
+For create, cancel, or reschedule operations, the GPT must use only the fresh `getCurrentMadridTime` and `getReservations` responses from the current user request.
+
+After any create, cancel, or reschedule action, the GPT must call `getReservations` again and show the updated schedule.

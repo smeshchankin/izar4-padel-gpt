@@ -27,8 +27,10 @@ This document lists known limitations of the current GPT configuration.
 
 ## Fresh Data
 
-- The current instructions require `getReservations` before schedule, booking, cancellation, and rescheduling operations.
-- Future versions may strengthen this by requiring a fresh API call at the start of every user message.
+- The current instructions require `getCurrentMadridTime` and `getReservations` at the start of every user request.
+- The GPT must not answer using reservation data, current date, or current time from previous messages, memory, or earlier API calls.
+- Every new user message must be treated as requiring fresh external data.
+- If current time or reservations cannot be loaded, the GPT should not answer based on stale or guessed data.
 
 ## Schedule Display
 
