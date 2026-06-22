@@ -1,0 +1,189 @@
+openapi: 3.1.0
+info:
+  title: IZAR4 Reservas API
+  version: 1.0.0
+servers:
+  - url: https://izar4.es
+paths:
+  /wp-json/wp/v2/reservas:
+    get:
+      operationId: getReservations
+      summary: Get current IZAR4 court reservations
+      parameters:
+        - name: per_page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 100
+            maximum: 100
+        - name: recurso
+          in: query
+          required: false
+          schema:
+            type: integer
+            description: Resource/term id if known
+            example: 12
+        - name: _fields
+          in: query
+          required: false
+          schema:
+            type: string
+            default: id,slug,acf,recurso
+      responses:
+        "200":
+          description: List of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    slug:
+                      type: string
+                    recurso:
+                      type: array
+                      items:
+                        type: integer
+                    acf:
+                      type: object
+                      properties:
+                        id_franja_reservas:
+                          type: string
+                          description: Slot id, for example P1-1
+                        fecha_reservas:
+                          type: string
+                          description: Reservation date in YYYYMMDD format
+                        nombre_reservas:
+                          type: string
+                          description: Reservation holder name
+                        vivienda_reservas:
+                          type: string
+                          description: Apartment code
+                        codigo_cancelacion_reservas:
+                          type: string
+                          description: Cancellation code
+  /wp-json/app/v1/reservar:
+    post:
+      operationId: createReservation
+      summary: Create a court reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - titulo
+                - idFranja
+                - fecha
+                - nombre
+                - vivienda
+                - codigo
+                - idTermino
+              properties:
+                titulo:
+                  type: string
+                  example: 20260604 - PADEL P1-1
+                idFranja:
+                  type: string
+                  example: P1-1
+                fecha:
+                  type: string
+                  description: Date in YYYYMMDD format
+                  example: "20260604"
+                nombre:
+                  type: string
+                  example: John Smith
+                vivienda:
+                  type: string
+                  example: P2-22
+                codigo:
+                  type: string
+                  example: "1"
+                idTermino:
+                  type: integer
+                  description: Resource/term id obtained from getReservations recurso field
+                  example: 12
+      responses:
+        "200":
+          description: Reservation created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  id:
+                    type: integer
+                  idReserva:
+                    type: integer
+                  reserva:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      titulo:
+                        type: string
+                      fecha:
+                        type: string
+                      idFranja:
+                        type: string
+                  data:
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                      message:
+                        type: string
+  /wp-json/app/v1/cancelar:
+    post:
+      operationId: cancelReservation
+      summary: Cancel a court reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - idReserva
+                - codigo
+              properties:
+                idReserva:
+                  type: integer
+                  example: 1369
+                codigo:
+                  type: string
+                  example: "1"
+      responses:
+        "200":
+          description: Reservation cancelled
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  id:
+                    type: integer
+                  idReserva:
+                    type: integer
+                  cancelled:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      status:
+                        type: integer
+                      message:
+                        type: string
