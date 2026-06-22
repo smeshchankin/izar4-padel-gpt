@@ -42,11 +42,14 @@ Authentication:
 None
 ```
 
-Configured Action:
+Configured Actions:
 
 ```text
 IZAR4 Reservas API
+Madrid Time API
 ```
+
+### IZAR4 Reservas API
 
 Schema file:
 
@@ -60,6 +63,20 @@ Operations:
 getReservations
 createReservation
 cancelReservation
+```
+
+### Madrid Time API
+
+Schema file:
+
+```text
+actions/madrid-time.openapi.yaml
+```
+
+Operations:
+
+```text
+getCurrentMadridTime
 ```
 
 ## Privacy Policy

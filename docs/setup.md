@@ -74,11 +74,9 @@ Actions: enabled
 
 ## 7. Actions
 
-Create one Action:
+Create two Actions.
 
-```text
-IZAR4 Reservas API
-```
+### Action 1: IZAR4 Reservas API
 
 Authentication:
 
@@ -92,12 +90,32 @@ Schema file:
 actions/izar4.openapi.yaml
 ```
 
-The schema defines these operations:
+Operations:
 
 ```text
 getReservations
 createReservation
 cancelReservation
+```
+
+### Action 2: Madrid Time API
+
+Authentication:
+
+```text
+None
+```
+
+Schema file:
+
+```text
+actions/madrid-time.openapi.yaml
+```
+
+Operations:
+
+```text
+getCurrentMadridTime
 ```
 
 ## 8. Privacy Policy

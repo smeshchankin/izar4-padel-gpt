@@ -100,3 +100,47 @@ The GPT reads reservation data from these fields:
 - `idTermino` should not be hardcoded in GPT instructions.
 - The GPT should not expose raw JSON or internal API details to users unless explicitly asked.
 - The external IZAR4 API may change without notice.
+
+## Madrid Time API
+
+The GPT uses a separate time API to get the current date and time in Europe/Madrid.
+
+Base URL:
+
+```text
+https://timeapi.io
+```
+
+### `getCurrentMadridTime`
+
+```http
+GET /api/Time/current/zone?timeZone=Europe/Madrid
+```
+
+Used to determine:
+
+- current Europe/Madrid date;
+- current Europe/Madrid time;
+- `today`;
+- `today + 7 days`;
+- relative dates such as `today`, `tomorrow`, and weekdays.
+
+Example response:
+
+```json
+{
+  "year": 2026,
+  "month": 6,
+  "day": 23,
+  "hour": 10,
+  "minute": 30,
+  "seconds": 15,
+  "milliSeconds": 123,
+  "dateTime": "2026-06-23T10:30:15.123",
+  "date": "06/23/2026",
+  "time": "10:30",
+  "timeZone": "Europe/Madrid",
+  "dayOfWeek": "Tuesday",
+  "dstActive": true
+}
+```

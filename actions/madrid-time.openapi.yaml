@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Madrid Time API
+  version: 1.0.0
+
+servers:
+  - url: https://timeapi.io
+
+paths:
+  /api/Time/current/zone:
+    get:
+      operationId: getCurrentMadridTime
+      summary: Get current date and time in Madrid
+      parameters:
+        - name: timeZone
+          in: query
+          required: true
+          schema:
+            type: string
+            default: Europe/Madrid
+            example: Europe/Madrid
+          description: IANA time zone name.
+      responses:
+        "200":
+          description: Current Madrid time
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  year:
+                    type: integer
+                    example: 2026
+                  month:
+                    type: integer
+                    example: 6
+                  day:
+                    type: integer
+                    example: 23
+                  hour:
+                    type: integer
+                    example: 10
+                  minute:
+                    type: integer
+                    example: 30
+                  seconds:
+                    type: integer
+                    example: 15
+                  milliSeconds:
+                    type: integer
+                    example: 123
+                  dateTime:
+                    type: string
+                    example: "2026-06-23T10:30:15.123"
+                  date:
+                    type: string
+                    example: "06/23/2026"
+                  time:
+                    type: string
+                    example: "10:30"
+                  timeZone:
+                    type: string
+                    example: Europe/Madrid
+                  dayOfWeek:
+                    type: string
+                    example: Tuesday
+                  dstActive:
+                    type: boolean
+                    example: true

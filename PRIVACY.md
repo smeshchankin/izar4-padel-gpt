@@ -54,6 +54,12 @@ The creator of this GPT does not control:
 
 Any data sent to or received from `izar4.es` is handled according to the behavior and policies of the IZAR4 website and its API, which are outside the control of this project and its creator.
 
+This GPT may also use an external time API, currently `timeapi.io`, to determine the current date and time in Europe/Madrid.
+
+This time request is used to interpret relative dates, enforce booking date limits, and validate whether a requested action is allowed.
+
+The time API request does not need to include the user’s name, apartment number, or reservation details.
+
 ## 5. No Separate Backend Database
 
 This GPT does not operate a separate backend database controlled by the GPT creator.
@@ -65,6 +71,7 @@ Data may still be processed by:
 - ChatGPT/OpenAI as part of the conversation and GPT functionality;
 - the IZAR4 website/API as part of the requested reservation action;
 - any third-party service configured in the GPT Actions schema, if such a service is added in the future.
+- an external time API used only to determine the current Europe/Madrid date and time.
 
 ## 6. User Responsibility
 

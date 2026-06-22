@@ -21,9 +21,9 @@ This document lists known limitations of the current GPT configuration.
 
 ## Time Handling
 
-- The current configuration does not use a separate external time API.
-- The current configuration relies on GPT interpretation of Europe/Madrid date and time.
-- Future versions may add a Madrid DateTime Action.
+- The current configuration uses an external Madrid Time API to determine the current Europe/Madrid date and time.
+- The GPT should use `getCurrentMadridTime` before create, cancel, or reschedule operations.
+- If the Madrid Time API is unavailable, the GPT should not create, cancel, or reschedule reservations.
 
 ## Fresh Data
 
