@@ -103,7 +103,8 @@ paths:
                   example: P2-22
                 codigo:
                   type: string
-                  example: "1"
+                  description: Cancellation code generated as GPT_YYYYMMDD_HHMMSS
+                  example: "GPT_20260623_143015"
                 idTermino:
                   type: integer
                   description: Resource/term id obtained from getReservations recurso field
@@ -161,7 +162,8 @@ paths:
                   example: 1369
                 codigo:
                   type: string
-                  example: "1"
+                  description: Cancellation code from acf.codigo_cancelacion_reservas of the matching reservation
+                  example: GPT_20260623_143015
       responses:
         "200":
           description: Reservation cancelled

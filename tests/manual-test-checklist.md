@@ -14,6 +14,7 @@
 - Verify GPT does not book an occupied slot.
 - Verify GPT creates reservation only after checking current reservations.
 - Verify GPT shows updated schedule after booking.
+- Verify new reservations use `codigo` in format `GPT_YYYYMMDD_HHMMSS`.
 
 ## Cancellation
 
@@ -22,6 +23,8 @@
 - Try cancelling another apartment's reservation.
 - Verify GPT refuses.
 - Verify GPT shows updated schedule after cancellation.
+- Verify GPT uses `acf.codigo_cancelacion_reservas` from the matching reservation.
+- Verify GPT does not hardcode `codigo="1"` for cancellation.
 
 ## Rescheduling
 

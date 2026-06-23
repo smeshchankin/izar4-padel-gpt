@@ -95,6 +95,23 @@ The GPT must:
 - refuse cancellation if the reservation belongs to another apartment;
 - ask for clarification if multiple matching reservations are found.
 
+## Cancellation Code
+
+For new reservations, the GPT must generate the cancellation code as:
+```text
+GPT_YYYYMMDD_HHMMSS
+```
+using the current Europe/Madrid time from getCurrentMadridTime.
+
+For cancellation, the GPT must use the cancellation code stored in the matching reservation:
+```text
+acf.codigo_cancelacion_reservas
+```
+
+The GPT must not hardcode the cancellation code.
+
+Legacy reservations may still use old cancellation codes such as 1. The GPT must use the actual code returned by the API for that reservation.
+
 ## Date Limits
 
 Creating, cancelling, and rescheduling are allowed only from today through 7 days ahead, inclusive.

@@ -57,7 +57,7 @@ Request body example:
   "fecha": "20260604",
   "nombre": "John Smith",
   "vivienda": "P2-02",
-  "codigo": "1",
+  "codigo": "GPT_20260604_143015",
   "idTermino": 12
 }
 ```
@@ -75,7 +75,7 @@ Request body example:
 ```json
 {
   "idReserva": 1369,
-  "codigo": "1"
+  "codigo": "GPT_20260604_143015"
 }
 ```
 
@@ -93,6 +93,28 @@ The GPT reads reservation data from these fields:
 | `acf.nombre_reservas` | Reservation holder name. |
 | `acf.vivienda_reservas` | Apartment code. |
 | `acf.codigo_cancelacion_reservas` | Cancellation code. |
+
+## Cancellation Code Strategy
+
+For new reservations, the GPT generates `codigo` as:
+
+```text
+GPT_YYYYMMDD_HHMMSS
+```
+
+Example:
+```text
+GPT_20260623_143015
+```
+The timestamp must come from getCurrentMadridTime.
+
+For cancellation, the GPT must not guess or hardcode the code. It must use:
+```text
+acf.codigo_cancelacion_reservas
+```
+from the matching reservation returned by fresh getReservations.
+
+Old reservations may still have legacy code values such as 1; in that case, the GPT uses whatever value is returned by the API.
 
 ## Notes
 

@@ -16,8 +16,11 @@ This document lists known limitations of the current GPT configuration.
 
 ## Cancellation Code
 
-- The current configuration uses `codigo="1"` for create and cancel operations.
-- Future versions may use a generated GPT marker as the cancellation code.
+- New reservations use a generated cancellation code in the format `GPT_YYYYMMDD_HHMMSS`.
+- The timestamp is based on current Europe/Madrid time from `getCurrentMadridTime`.
+- Cancellation uses the stored code from `acf.codigo_cancelacion_reservas`.
+- Legacy reservations may still have older codes such as `1`.
+- The GPT does not control how the IZAR4 API stores, exposes, or validates cancellation codes.
 
 ## Time Handling
 

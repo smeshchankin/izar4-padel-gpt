@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 - 2026-06-23 - Use GPT marker as cancellation code
+
+- Replaced hardcoded `codigo="1"` for new reservations with `GPT_YYYYMMDD_HHMMSS`.
+- Updated cancellation flow to use `acf.codigo_cancelacion_reservas` from the matching reservation.
+- Updated OpenAPI schema examples for generated cancellation codes.
+- Updated API notes, booking rules, known limitations, and privacy policy.
 
 ## 0.3.0 - 2026-06-23 - Require fresh data for every request
 

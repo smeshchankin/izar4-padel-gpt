@@ -23,6 +23,7 @@ When you use this GPT, it may process the following information:
 - requested reservation date and time;
 - existing court reservation data returned by the IZAR4 reservation API;
 - reservation creation, cancellation, or rescheduling requests made by you;
+- generated cancellation markers, such as `GPT_YYYYMMDD_HHMMSS`, used to identify reservations created via this GPT;
 - cancellation-related data returned by the IZAR4 reservation API when required to perform a cancellation.
 
 ## 3. How the Data Is Used
@@ -97,6 +98,12 @@ Users must not misuse cancellation functionality or cancel reservations that are
 The GPT instructions are designed to prevent cancellation of reservations belonging to another apartment, but no technical or operational guarantee is made that the GPT, the external API, or the user interaction will always behave perfectly.
 
 Users remain responsible for all cancellation requests they make.
+
+For reservations created by this GPT, the cancellation code may include a marker in the format `GPT_YYYYMMDD_HHMMSS`.
+
+This marker is used to indicate that the reservation was created through this GPT and to support later cancellation through the IZAR4 API.
+
+The marker does not need to include the user’s name, apartment number, or any ChatGPT user identifier.
 
 ## 8. No Guarantee
 
