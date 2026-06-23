@@ -4,10 +4,11 @@ Use these examples in the GPT Builder “Conversation starters” section.
 
 ## Recommended starters
 
-- What court slots are free today?
-- Book padel tomorrow at 09:00
-- Cancel my court booking
-- Set up my name and apartment for bookings
+- 📅 Show today’s court schedule
+- 🗓️ Show this week’s court schedule
+- 🎾 Book padel tomorrow at 09:00
+- ❌ Cancel my court booking
+- 👤 Set up my name and apartment for bookings
 
 ## Additional examples
 

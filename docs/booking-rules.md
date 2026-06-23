@@ -62,6 +62,28 @@ acf.id_franja_reservas = target slot id
 
 If a slot is occupied, the GPT must not create another reservation for the same date and slot.
 
+## Weekly Schedule Display
+
+For weekly or 7-day schedule requests, the GPT should show a markdown table where:
+
+- columns are dates;
+- rows are slot start times;
+- each cell shows `🟢` if free or `🔴 Name` if occupied.
+
+Slot rows:
+
+```text
+09:00
+10:00
+11:30
+13:00
+14:30
+16:00
+17:30
+19:00
+20:30
+```
+
 ## Fresh Data Rule
 
 Before answering any user request, the GPT must:

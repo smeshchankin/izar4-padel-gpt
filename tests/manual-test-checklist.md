@@ -7,6 +7,12 @@
 - Verify GPT shows all 9 slots.
 - Verify free and occupied slots are displayed correctly.
 
+- Ask: `Show this week’s court schedule`
+- Verify GPT shows dates as columns.
+- Verify GPT shows slot start times as rows.
+- Verify free cells use `🟢`.
+- Verify occupied cells use `🔴 Name`.
+
 ## Booking
 
 - Ask to book a free slot.

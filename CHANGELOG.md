@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 - 2026-06-23 - Add weekly schedule table
+
+- Added weekly schedule display format.
+- Weekly table uses dates as columns and slot start times as rows.
+- Added weekly schedule conversation starter.
+- Updated booking rules and manual test checklist.
+
 ## 0.4.0 - 2026-06-23 - Use GPT marker as cancellation code
 
 - Replaced hardcoded `codigo="1"` for new reservations with `GPT_YYYYMMDD_HHMMSS`.
