@@ -142,13 +142,23 @@ Past dates are not allowed.
 
 Dates more than 7 days ahead are not allowed.
 
-## Apartment Reservation Limit
+## Apartment Reservation Limits
 
-One apartment may have at most 3 active reservations from today through 7 days ahead, inclusive.
+The GPT must enforce the same limits as the main reservation system:
 
-Before creating a reservation, the GPT must count reservations for the current user’s apartment in this period.
+- maximum 3 active reservations per apartment per calendar week for this resource;
+- maximum 1 active reservation per apartment per day for this resource.
 
-If the apartment already has 3 reservations, the GPT must refuse to create another reservation.
+Calendar week means Monday-Sunday in Europe/Madrid.
+
+Before creating a reservation, the GPT must count fresh reservations for the current apartment and same resource:
+
+- daily count: reservations where `acf.fecha_reservas` equals the target date;
+- weekly count: reservations where `acf.fecha_reservas` is within the Monday-Sunday week of the target date.
+
+If the apartment already has 1 reservation on the target date, the GPT must not create another reservation for that date.
+
+If the apartment already has 3 reservations in the target week, the GPT must not create another reservation for that week.
 
 ## Rescheduling
 

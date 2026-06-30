@@ -41,10 +41,10 @@
 
 ## Limits
 
-- Try booking more than 7 days ahead.
-- Verify GPT refuses.
-- Try booking a 4th reservation for the same apartment.
-- Verify GPT refuses.
+- Verify GPT refuses a second reservation for the same apartment on the same day.
+- Verify GPT refuses a fourth reservation for the same apartment in the same calendar week.
+- Verify weekly count uses the target date's Monday-Sunday week, not today+7.
+- Verify rescheduling does not incorrectly count the old reservation as an extra reservation after cancellation.
 
 ## Language
 

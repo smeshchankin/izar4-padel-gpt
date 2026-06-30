@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 - 2026-06-30 - Match reservation limits
+
+- Updated booking rules to match the main reservation system.
+- Added max 1 reservation per apartment per day.
+- Changed weekly limit logic to max 3 reservations per calendar week.
+- Weekly limit is checked against the target date's Monday-Sunday week.
+
 ## 0.5.0 - 2026-06-23 - Add weekly schedule table
 
 - Added weekly schedule display format.

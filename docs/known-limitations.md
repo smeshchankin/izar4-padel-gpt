@@ -40,6 +40,12 @@ This document lists known limitations of the current GPT configuration.
 - The current configuration supports day schedule tables.
 - Weekly schedule table output is planned for a future version.
 
+## Reservation Limits
+
+- The GPT follows the main reservation system limits: max 1 reservation per apartment per day and max 3 reservations per apartment per calendar week for this resource.
+- Calendar week is interpreted as Monday-Sunday in Europe/Madrid.
+- The GPT depends on fresh API data from `getReservations` to enforce these limits.
+
 ## Safety
 
 The GPT instructions are designed to reduce mistakes, but no guarantee is made that:
